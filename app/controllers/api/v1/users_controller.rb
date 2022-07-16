@@ -4,6 +4,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
+      @token = @user.tokens.create  # viene el token, fecha de expiracion, ...
       render :show, status: :created
     else
       render json: { errors: @user.errors.messages }, status: :bad_request
