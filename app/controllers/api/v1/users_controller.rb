@@ -4,10 +4,13 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      render json: @user, status: :created
+      render :show, status: :created
     else
       render json: { errors: @user.errors.messages }, status: :bad_request
     end
+  end
+
+  def login
   end
 
   private
