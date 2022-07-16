@@ -15,5 +15,8 @@ RSpec.describe User, type: :model do
     it 'validar que no acepte correos incorrectos' do
       should_not allow_value('test').for(:email)
     end
+    it 'Validar relacion con tokens' do
+      should have_many(:tokens)
+    end
   end
 end
