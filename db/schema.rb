@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_16_223546) do
+ActiveRecord::Schema.define(version: 2022_07_16_232934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.float "weight"
+    t.text "story"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "characters_movies", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_characters_movies_on_character_id"
+    t.index ["movie_id"], name: "index_characters_movies_on_movie_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.date "creation_date"
+    t.integer "rating"
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_movies_on_genre_id"
+  end
 
   create_table "tokens", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -31,5 +65,8 @@ ActiveRecord::Schema.define(version: 2022_07_16_223546) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "characters_movies", "characters"
+  add_foreign_key "characters_movies", "movies"
+  add_foreign_key "movies", "genres"
   add_foreign_key "tokens", "users"
 end
