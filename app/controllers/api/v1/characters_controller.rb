@@ -31,6 +31,10 @@ class Api::V1::CharactersController < ApplicationController
   end
 
   def restore
+    @character = Character.only_deleted.find(params[:character_id])
+    head :not_found unless @character
+    @character.restore
+    render :show, status: :ok
   end
 
   private
