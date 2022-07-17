@@ -12,9 +12,9 @@
 #
 FactoryBot.define do
   factory :movie do
-    title { "MyString" }
-    creation_date { "2022-07-16" }
-    rating { 1 }
-    genre { nil }
+    title { Faker::Movie.title }
+    creation_date { Faker::Date.between(from: '2000-01-01', to: '2021-12-31') }
+    rating { rand(1..5) }
+    genre
   end
 end
