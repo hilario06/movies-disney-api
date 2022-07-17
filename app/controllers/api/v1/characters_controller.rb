@@ -5,4 +5,7 @@ class Api::V1::CharactersController < ApplicationController
     @characters = Character.all
     render :index, status: :ok
   end
+
+  def create
+  end
 end

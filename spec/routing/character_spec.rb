@@ -8,4 +8,12 @@ describe 'Rutas de los personajes' do
       action: 'index'
     )
   end
+
+  it 'Ruta post de personajes' do
+    expect(post: '/api/v1/characters').to route_to(
+      format: 'json',
+      controller: 'api/v1/characters',
+      action: 'create'
+    )
+  end
 end
