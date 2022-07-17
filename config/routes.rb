@@ -7,6 +7,7 @@ scope '(:locale)', locale: /es|en/ do
           # api/v1/users/login
           post 'login', on: :collection
         end
+        resources :characters, only: %i[index]
       end
     end
   end
