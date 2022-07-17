@@ -1,6 +1,6 @@
 class Api::V1::CharactersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_character, only: %i[update]
+  before_action :set_character, only: %i[update destroy]
 
   def index
     @characters = Character.all
@@ -26,6 +26,8 @@ class Api::V1::CharactersController < ApplicationController
   end
 
   def destroy
+    @character.destroy
+    head :ok
   end
 
   private
