@@ -25,6 +25,9 @@ class Api::V1::CharactersController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def character_params

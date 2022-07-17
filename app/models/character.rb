@@ -9,6 +9,7 @@
 #  story      :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  deleted_at :datetime
 #
 class Character < ApplicationRecord
   acts_as_paranoid  # de la gema paranoia (que cambia el estado del registro)

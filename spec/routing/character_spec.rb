@@ -25,4 +25,13 @@ describe 'Rutas de los personajes' do
       id: '1'
     )
   end
+
+  it 'Ruta delete personajes' do
+    expect(delete: '/api/v1/characters/1').to route_to(
+      format: 'json',
+      controller: 'api/v1/characters',
+      action: 'destroy',
+      id: '1'
+    )
+  end
 end
