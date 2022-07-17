@@ -30,6 +30,9 @@ class Api::V1::CharactersController < ApplicationController
     head :ok
   end
 
+  def restore
+  end
+
   private
 
   def character_params

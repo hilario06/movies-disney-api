@@ -34,4 +34,13 @@ describe 'Rutas de los personajes' do
       id: '1'
     )
   end
+
+  it 'Ruta restaurar personaje' do
+    expect(post: '/api/v1/characters/1/restore').to route_to(
+      format: 'json',
+      controller: 'api/v1/characters',
+      action: 'restore',
+      character_id: '1'
+    )
+  end
 end
