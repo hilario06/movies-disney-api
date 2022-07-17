@@ -1,5 +1,6 @@
 class Api::V1::CharactersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_character, only: %i[update]
 
   def index
     @characters = Character.all
@@ -17,11 +18,21 @@ class Api::V1::CharactersController < ApplicationController
   end
 
   def update
+    if @character.update(character_params)
+      render :show, status: :ok
+    else
+      render json: { errors: @character.errors.messages }, status: :bad_request
+    end
   end
 
   private
 
   def character_params
     params.require(:character).permit(:name, :age, :weight, :story)
+  end
+
+  def set_character
+    @character = Character.find(params[:id])
+    head :not_found unless @character
   end
 end
