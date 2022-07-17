@@ -16,4 +16,13 @@ describe 'Rutas de los personajes' do
       action: 'create'
     )
   end
+
+  it 'Ruta PUT para actualizar personajes' do
+    expect(put: '/api/v1/characters/1').to route_to(
+      format: 'json',
+      controller: 'api/v1/characters',
+      action: 'update',
+      id: '1'
+    )
+  end
 end

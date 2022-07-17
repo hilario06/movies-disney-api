@@ -16,6 +16,9 @@ class Api::V1::CharactersController < ApplicationController
     end
   end
 
+  def update
+  end
+
   private
 
   def character_params
