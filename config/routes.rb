@@ -7,7 +7,7 @@ scope '(:locale)', locale: /es|en/ do
           # api/v1/users/login
           post 'login', on: :collection
         end
-        resources :characters, only: %i[index create update destroy] do
+        resources :characters, only: %i[index create update destroy show] do
           # api/v1/characters/:character_id/restore
           post 'restore'
         end

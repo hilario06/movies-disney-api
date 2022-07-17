@@ -7,6 +7,9 @@ class Api::V1::CharactersController < ApplicationController
     render :index, status: :ok
   end
 
+  def show
+  end
+
   def create
     @character = Character.new(character_params)
     if @character.valid?

@@ -43,4 +43,13 @@ describe 'Rutas de los personajes' do
       character_id: '1'
     )
   end
+
+  it 'Ruta show de los personajes' do
+    expect(get: '/api/v1/characters/1').to route_to(
+      format: 'json',
+      controller: 'api/v1/characters',
+      action: 'show',
+      id: '1'
+    )
+  end
 end
