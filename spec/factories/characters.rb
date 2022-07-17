@@ -12,9 +12,9 @@
 #
 FactoryBot.define do
   factory :character do
-    name { "MyString" }
-    age { 1 }
-    weight { 1.5 }
-    story { "MyText" }
+    name { Faker::Name.name }
+    age { rand(18..65) }
+    weight { rand(35.0..100).round(2) }
+    story { Faker::Lorem.sentence(word_count: 15, supplemental: true) }
   end
 end
