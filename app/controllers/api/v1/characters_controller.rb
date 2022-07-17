@@ -7,5 +7,18 @@ class Api::V1::CharactersController < ApplicationController
   end
 
   def create
+    @character = Character.new(character_params)
+    if @character.valid?
+      @character.save
+      render :show, status: :created
+    else
+      render json: { errors: @character.errors.messages }, status: :bad_request
+    end
+  end
+
+  private
+
+  def character_params
+    params.require(:character).permit(:name, :age, :weight, :story)
   end
 end
