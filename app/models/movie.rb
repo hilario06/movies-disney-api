@@ -11,6 +11,7 @@
 #  updated_at    :datetime         not null
 #
 class Movie < ApplicationRecord
+  acts_as_paranoid  # de la gema paranoia (que cambia el estado del registro)
   belongs_to :genre
   has_many :characters_movies
   has_many :characters, through: :characters_movies

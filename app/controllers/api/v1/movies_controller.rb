@@ -31,6 +31,10 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def restore
+    @movie = Movie.only_deleted.find(params[:movie_id])
+    head :not_found unless @movie
+    @movie.restore
+    render :show, status: :ok
   end
 
   private
