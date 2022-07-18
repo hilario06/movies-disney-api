@@ -11,5 +11,15 @@
 require 'rails_helper'
 
 RSpec.describe CharactersMovie, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Validacion del model token' do
+    subject { build(:characters_movie) }
+
+    it 'Validar si existe relacion con movie' do
+      should belong_to(:movie)
+    end
+
+    it 'Validar si existe relacion con movie' do
+      should belong_to(:character)
+    end
+  end
 end

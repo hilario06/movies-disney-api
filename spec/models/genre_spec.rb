@@ -16,5 +16,9 @@ RSpec.describe Genre, type: :model do
     it 'Validar si titulo esta presente' do
       should validate_presence_of(:name)
     end
+
+    it 'Validar relacion con movies' do
+      should have_many(:movies)
+    end
   end
 end
