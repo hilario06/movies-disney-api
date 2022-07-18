@@ -25,4 +25,13 @@ describe 'Rutas de los peliculas' do
       id: '1'
     )
   end
+
+  it 'Ruta delete peliculas' do
+    expect(delete: '/api/v1/movies/1').to route_to(
+      format: 'json',
+      controller: 'api/v1/movies',
+      action: 'destroy',
+      id: '1'
+    )
+  end
 end

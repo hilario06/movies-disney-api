@@ -25,6 +25,9 @@ class Api::V1::MoviesController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def movie_params
