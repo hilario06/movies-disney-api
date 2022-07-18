@@ -34,4 +34,13 @@ describe 'Rutas de los peliculas' do
       id: '1'
     )
   end
+
+  it 'Ruta restaurar pelicula' do
+    expect(post: '/api/v1/movies/1/restore').to route_to(
+      format: 'json',
+      controller: 'api/v1/movies',
+      action: 'restore',
+      movie_id: '1'
+    )
+  end
 end

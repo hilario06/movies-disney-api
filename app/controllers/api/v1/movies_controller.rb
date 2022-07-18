@@ -30,6 +30,9 @@ class Api::V1::MoviesController < ApplicationController
     head :ok
   end
 
+  def restore
+  end
+
   private
 
   def movie_params
