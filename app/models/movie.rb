@@ -16,4 +16,5 @@ class Movie < ApplicationRecord
   has_many :characters, through: :characters_movies
 
   validates :title, :creation_date, :rating, presence: true
+  validates :rating, numericality: { only_integer: true }
 end
