@@ -1,6 +1,6 @@
 class Api::V1::MoviesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_movie, only: %i[update]
+  before_action :set_movie, only: %i[update destroy]
 
   def index
     @movies = Movie.all
@@ -26,6 +26,8 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def destroy
+    @movie.destroy
+    head :ok
   end
 
   private
