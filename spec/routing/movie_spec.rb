@@ -16,4 +16,13 @@ describe 'Rutas de los peliculas' do
       action: 'create'
     )
   end
+
+  it 'Ruta PUT para actualizar peliculas' do
+    expect(put: '/api/v1/movies/1').to route_to(
+      format: 'json',
+      controller: 'api/v1/movies',
+      action: 'update',
+      id: '1'
+    )
+  end
 end
