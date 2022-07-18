@@ -1,5 +1,6 @@
 class Api::V1::MoviesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_movie, only: %i[update]
 
   def index
     @movies = Movie.all
@@ -17,11 +18,21 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def update
+    if @movie.update(movie_params)
+      render :show, status: :ok
+    else
+      render json: { errors: @movie.errors.messages }, status: :bad_request
+    end
   end
 
   private
 
   def movie_params
     params.require(:movie).permit(:title, :creation_date, :rating, :genre_id)
+  end
+
+  def set_movie
+    @movie = Movie.find(params[:id])
+    head :not_found unless @movie
   end
 end
