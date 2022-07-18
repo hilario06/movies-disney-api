@@ -3,8 +3,20 @@ class Api::V1::CharactersController < ApplicationController
   before_action :set_character, only: %i[update destroy show]
 
   def index
-    @characters = Character.all
+    search
     render :index, status: :ok
+  end
+
+  def search
+    if params[:name].present?
+      @characters = Character.where("name ILIKE ?", "%#{params[:name]}%")
+    elsif params[:age].present?
+      @characters = Character.where(age: params[:age])
+    elsif params[:movie_id].present?
+      @characters = Character.joins(:characters_movies).where(characters_movies: {movie_id: params[:movie_id] })
+    else
+      @characters = Character.all
+    end
   end
 
   def show; end
