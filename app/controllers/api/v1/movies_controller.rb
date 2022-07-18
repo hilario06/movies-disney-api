@@ -5,4 +5,7 @@ class Api::V1::MoviesController < ApplicationController
     @movies = Movie.all
     render :index, status: :ok
   end
+
+  def create
+  end
 end

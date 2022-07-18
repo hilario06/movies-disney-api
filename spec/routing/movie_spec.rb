@@ -8,4 +8,12 @@ describe 'Rutas de los peliculas' do
       action: 'index'
     )
   end
+
+  it 'Ruta (post) creacion de peliculas' do
+    expect(post: '/api/v1/movies').to route_to(
+      format: 'json',
+      controller: 'api/v1/movies',
+      action: 'create'
+    )
+  end
 end
