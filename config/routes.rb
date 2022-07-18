@@ -11,7 +11,7 @@ scope '(:locale)', locale: /es|en/ do
           # api/v1/characters/:character_id/restore
           post 'restore'
         end
-        resources :movies, only: %i[index create update destroy] do
+        resources :movies, only: %i[index create update destroy show] do
           # api/v1/movies/:movie_id/restore
           post 'restore'
         end

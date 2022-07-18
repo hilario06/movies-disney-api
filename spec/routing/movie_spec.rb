@@ -43,4 +43,13 @@ describe 'Rutas de los peliculas' do
       movie_id: '1'
     )
   end
+
+  it 'Ruta show de los peliculas' do
+    expect(get: '/api/v1/movies/1').to route_to(
+      format: 'json',
+      controller: 'api/v1/movies',
+      action: 'show',
+      id: '1'
+    )
+  end
 end

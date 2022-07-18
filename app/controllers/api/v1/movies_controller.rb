@@ -7,6 +7,9 @@ class Api::V1::MoviesController < ApplicationController
     render :index, status: :ok
   end
 
+  def show
+  end
+
   def create
     @movie = Movie.new(movie_params)
     if @movie.valid?
