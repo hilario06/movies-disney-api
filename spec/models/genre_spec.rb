@@ -10,5 +10,11 @@
 require 'rails_helper'
 
 RSpec.describe Genre, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Validaciones del de una pelicula' do
+    subject{ build(:genre) }
+
+    it 'Validar si titulo esta presente' do
+      should validate_presence_of(:name)
+    end
+  end
 end
