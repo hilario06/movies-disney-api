@@ -1,14 +1,13 @@
 class Api::V1::MoviesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_movie, only: %i[update destroy]
+  before_action :set_movie, only: %i[update destroy show]
 
   def index
     @movies = Movie.all
     render :index, status: :ok
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @movie = Movie.new(movie_params)
