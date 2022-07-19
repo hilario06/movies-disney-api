@@ -12,6 +12,7 @@
 #
 class Movie < ApplicationRecord
   acts_as_paranoid  # de la gema paranoia (que cambia el estado del registro)
+  has_one_attached :image
   belongs_to :genre
   has_many :characters_movies
   has_many :characters, through: :characters_movies

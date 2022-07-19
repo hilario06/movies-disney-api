@@ -25,7 +25,7 @@ RSpec.describe Api::V1::MoviesController, type: :controller do
       end
       context 'Estructura correcta de la pelicula' do
         subject { payload_test }
-        it { is_expected.to include(:id, :title, :creation_date, :rating, :genre_id, :created_at, :updated_at) }
+        it { is_expected.to include(:id, :title, :creation_date, :rating, :genre_id) }
       end
     end
     context 'Fallo registro de personaje' do

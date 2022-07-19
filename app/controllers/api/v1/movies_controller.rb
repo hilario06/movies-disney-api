@@ -14,7 +14,7 @@ class Api::V1::MoviesController < ApplicationController
       @movies = Movie.where(genre_id: params[:genre_id])
     elsif params[:order].present?
       # @movies = Movie.order("creation_date DESC")
-      @movies = params[:order]=='desc' ? Movie.order(creation_date: :desc) : Movie.order(:creation_date)
+      @movies = params[:order].downcase=='desc' ? Movie.order(creation_date: :desc) : Movie.order(:creation_date)
     else
       @movies = Movie.all
     end
@@ -55,7 +55,7 @@ class Api::V1::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :creation_date, :rating, :genre_id)
+    params.require(:movie).permit(:title, :creation_date, :rating, :genre_id, :image)
   end
 
   def set_movie
