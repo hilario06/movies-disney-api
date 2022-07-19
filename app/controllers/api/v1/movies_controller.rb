@@ -3,7 +3,7 @@ class Api::V1::MoviesController < ApplicationController
   before_action :set_movie, only: %i[update destroy show]
 
   def index
-    @movies = Movie.all
+    search
     render :index, status: :ok
   end
 
