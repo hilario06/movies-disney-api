@@ -7,6 +7,19 @@ class Api::V1::MoviesController < ApplicationController
     render :index, status: :ok
   end
 
+  def search
+    if params[:title].present?
+      @movies = Movie.where("title ILIKE ?", "%#{params[:title]}%")
+    elsif params[:genre_id].present?
+      @movies = Movie.where(genre_id: params[:genre_id])
+    elsif params[:order].present?
+      # @movies = Movie.order("creation_date DESC")
+      @movies = params[:order]=='desc' ? Movie.order(creation_date: :desc) : Movie.order(:creation_date)
+    else
+      @movies = Movie.all
+    end
+  end
+
   def show; end
 
   def create
