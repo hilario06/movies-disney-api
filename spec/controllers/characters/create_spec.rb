@@ -24,7 +24,7 @@ RSpec.describe Api::V1::CharactersController, type: :controller do
       end
       context 'Estructura correcta del icono geografico' do
         subject { payload_test }
-        it { is_expected.to include(:id, :name, :age, :weight, :story, :created_at, :updated_at) }
+        it { is_expected.to include(:id, :name, :age, :weight, :story) }
       end
     end
     context 'Fallo registro de personaje' do

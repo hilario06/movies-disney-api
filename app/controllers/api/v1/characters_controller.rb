@@ -54,7 +54,7 @@ class Api::V1::CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :age, :weight, :story)
+    params.require(:character).permit(:name, :age, :weight, :story, :avatar)
   end
 
   def set_character
