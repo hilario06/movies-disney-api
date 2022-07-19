@@ -9,6 +9,7 @@
 #  genre_id      :bigint           not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  deleted_at    :datetime
 #
 class Movie < ApplicationRecord
   acts_as_paranoid  # de la gema paranoia (que cambia el estado del registro)
