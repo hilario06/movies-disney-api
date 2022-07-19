@@ -16,4 +16,10 @@ class User < ApplicationRecord
   validates :email, :password_digest, presence: true
   validates :email, uniqueness: true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    WelcomeMailer.welcome_email(self).deliver
+  end
 end

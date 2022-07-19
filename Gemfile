@@ -59,3 +59,4 @@ gem 'table_print', '~> 1.5', '>= 1.5.7'
 gem 'annotate', '~> 3.2'
 # para realizar las busquedas
 gem 'pg_search', '~> 2.3', '>= 2.3.6'
+gem 'letter_opener', '~> 1.8', '>= 1.8.1'
