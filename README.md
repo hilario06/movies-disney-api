@@ -21,7 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+*
+<b>Version Ruby:</b> ruby '2.7.4'
+<b>Version Ruby:</b> rails '6.1.6'
 <b>descripcion de App:</b>
 Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los
 personajes que lo componen y entender en qué películas estos participaron. Por otro lado, deberá
