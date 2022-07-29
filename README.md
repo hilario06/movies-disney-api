@@ -1,30 +1,9 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-*
 <b>Version Ruby:</b> ruby '2.7.4'
 <br/>
 <b>Version Ruby:</b> rails '6.1.6'
+<br/>
+<b>Base de Datos:</b> PostgreSQL
 <br/>
 <b>descripcion de App: </b>
 Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los
