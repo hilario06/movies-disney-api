@@ -1,7 +1,7 @@
 # README
 <b>Version Ruby:</b> ruby '2.7.4'
 <br/>
-<b>Version Ruby:</b> rails '6.1.6'
+<b>Version Rails:</b> rails '6.1.6'
 <br/>
 <b>Base de Datos:</b> PostgreSQL
 <br/>
